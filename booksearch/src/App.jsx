@@ -1,37 +1,73 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  console.log(
-    process.env.REACT_APP_API_ACCESS_KEY
-  )
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  
+  const [responseData, setResponseData] = useState("")
+
+  
+  const getData = async(url)=>{
+    fetch(url)
+    .then(response => response.json())
+    .then(data => setResponseData(data))
+    .catch(error => console.error(error))
+  }
+
+  useEffect(()=>{
+    getData(`https://openlibrary.org/subjects/bond,_james_(fictitious_character),_fiction.json?limit=1000`)
+  },[])
+ 
+  if (responseData !== "") {
+    let books = []
+    let title = ""
+
+    responseData.works.map((x) => {
+      let author = x.authors[0].name
+
+      title = x.title
+      console.log(title)
+      title = title.split("[")
+      title = title[0]
+      title = title.split("(")
+      title = title[0]
+      title = title.trim()
+
+      x.subject.map((s) => {
+        let subject = s.toLowerCase()
+        if (subject.includes("james") && subject.includes("bond") && author === "Ian Fleming" && x.first_publish_year !== null && x.cover_id != null) {
+          books.push({
+            "title": title,
+            "publication": x.first_publish_year
+          })
+        }
+
+      })
+    
+    })
+
+    books.sort((a, b) => a.publication - b.publication);
+
+    let b = []
+
+    books.map((x) => {
+      if (x.publication <= 1966) { 
+        const items = b.filter(item => item.title.toLowerCase().indexOf(x.title.toLowerCase()) !== -1);
+        if (items.length === 0) {
+          b.push(x)
+        }
+      }
+    })
+
+    books = b
+
+    console.log(books)
+
+  }
+
+
+  return (<></>)
 }
 
 export default App
