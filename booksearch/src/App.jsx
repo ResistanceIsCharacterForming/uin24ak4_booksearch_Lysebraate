@@ -4,12 +4,12 @@ import BuildRoutes from './components/BuildRoutes'
 import './App.css'
 
 function App() {
-  
-  return (
-      <>
+
+    return (
+    <>
         <BuildRoutes />
-      </>
-  )
+    </>
+    )
 }
 
 export default App

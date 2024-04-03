@@ -4,7 +4,7 @@ import Bookcard from './Bookcard'
 
 export default function Searchresults() {
   
-    let { search } = useParams()
+    const { search } = useParams()
 
     const [toDisplay, setToDisplay] = useState([])
     
@@ -13,7 +13,7 @@ export default function Searchresults() {
         let frontpageData = []
 
         try {
-            
+
             const response = await fetch(`https://openlibrary.org/subjects/bond,_james_(fictitious_character),_fiction.json?limit=500`)
             const toParse = await response.json()
             
@@ -131,7 +131,11 @@ export default function Searchresults() {
 
     return (
         <main>
-            {toDisplay.map((data, index) => <Bookcard key={`book-${index}`} data={data} />)}
+            {(toDisplay.length > 0)
+            ?
+            toDisplay.map((data, index) => <Bookcard key={`book-${index}`} data={data} />)
+            :
+            <h3>Loading ...</h3>}
         </main>
     )
 }
