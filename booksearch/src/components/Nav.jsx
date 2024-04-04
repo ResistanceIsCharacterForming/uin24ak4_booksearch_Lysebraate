@@ -2,9 +2,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function Nav() {
-
+    
     const { search } = useParams()
     
+    const onSearchPage = ((window.location.pathname.includes("search")) ? true : false)
+
     const [input, setInput] = useState("")
     const navigate = useNavigate()
 
@@ -19,7 +21,7 @@ export default function Nav() {
         if (search !== undefined && search !== searchTerm) {
             searchTerm = search
             localStorage.setItem("searchTerm", searchTerm.replaceAll(" ", "+"))
-        } else if (search === undefined) {
+        } else if (search === undefined && onSearchPage) {
             searchTerm = ""
             localStorage.setItem("searchTerm", searchTerm)
         }

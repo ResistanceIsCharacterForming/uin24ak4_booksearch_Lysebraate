@@ -32,7 +32,7 @@ export default function Searchresults() {
                 thisTitle = thisTitle.trim()
 
                 thisAuthor = book.authors[0].name
-
+    
                 book.subject.map((subject) => {
 
                     thisSubject = subject.toLowerCase()
@@ -94,7 +94,7 @@ export default function Searchresults() {
             }
 
         } else {
-
+            
             try {
 
                 const response = await fetch(`https://openlibrary.org/search.json?q=${search}`)
@@ -104,9 +104,17 @@ export default function Searchresults() {
 
                 data.docs.map((book) => {
 
+                    let author = ""
+                    if ("author_name" in book) {
+                        author = book.author_name[0]
+                        if (book.author_name.length > 1) {
+                            author += ", et al."
+                        }
+                    }
+
                     books.push({
                         "title": book.title,
-                        "author" : ("author_name" in book) ? book.author_name[0] : "",
+                        "author" : author,
                         "publication": book.first_publish_year,
                         "key": book.key,
                         "ISBN": ("isbn" in book) ? book.isbn[0] : "",

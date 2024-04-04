@@ -2,6 +2,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Searchresults from './Searchresults'
 import Main from '../layouts/Main'
+import Bookinformation from './Bookinformation'
 
 /* Linje 7 til 22: Funksjon for å sette opp Routes med alle tilhørende Route for navigasjon av nettsiden. */
 export default function BuildRoutes() {
@@ -14,6 +15,7 @@ export default function BuildRoutes() {
                 {/* Linje 15 og 16: Hvis URL-en tilsvarer path kalt komponent. Merk med linje ... slug-en kalt category. Hvilket lar oss spesifiser en kategori i URL-en. */}
                 <Route path="/search" element={<Searchresults />} />
                 <Route path="/search/:search" element={<Searchresults />} />
+                <Route path="/information/works/:id" element={<Bookinformation />} />
                 {/* Linje 18: Hvis ingen av rutene ovenfor blir kalt fall tilbake på denne. Altså gå tilbake til hovedsiden og bruk standardverdien for kategorien.*/ }
                 <Route path="/*" exact element={<Searchresults />} />
             </Route>

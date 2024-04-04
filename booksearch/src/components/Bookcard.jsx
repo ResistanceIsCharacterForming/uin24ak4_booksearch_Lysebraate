@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Bookcard({ data }) {
     const amazonSearchPhrase = (data.id_amazon ? data.id_amazon : `${data.title} ${data.publication} ${data.author}`)
-    
+
     return (
         <article>
             <h2>{data.title}</h2>
