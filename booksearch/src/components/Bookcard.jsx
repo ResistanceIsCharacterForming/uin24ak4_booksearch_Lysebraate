@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 export default function Bookcard({ data, index }) {
     const amazonSearchPhrase = (data.id_amazon ? data.id_amazon : `${data.title} ${data.publication} ${data.author}`)
 
+    // Linje 7 til 19: Selve kortet for boken. data tilsvarer et innlegg i arrayen fra Searchresult.
     return (
         <article className={`item ${(index === 99) ? "no-grow" : ""}`}>
             <div className="container">

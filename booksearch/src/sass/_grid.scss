@@ -1,3 +1,5 @@
+// CSS for grid-en til søkeresultatene.
+
 .grid {
     display: flex;
     flex-flow: row-reverse wrap;
@@ -33,5 +35,11 @@
 
     .no-grow {
         flex-grow: 0;
+    }
+
+    .loading {
+        text-align: center;
+        margin: 0 auto;
+        padding: 3rem 0;
     }
 }

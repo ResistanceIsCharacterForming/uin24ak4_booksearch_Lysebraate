@@ -1,3 +1,5 @@
+// CSS for å gjøre grid-en til en enkelt rad hvis skjermen er 699 eller mindre piksler.
+
 @media (max-width: 700px) {
     .grid {
         display: flex;

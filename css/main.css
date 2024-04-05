@@ -42,6 +42,11 @@ body {
 .grid .no-grow {
   flex-grow: 0;
 }
+.grid .loading {
+  text-align: center;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
 
 header {
   background-color: #4D2D52;

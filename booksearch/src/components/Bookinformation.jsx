@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Bookinformation() {
+    // Linje 7: Hent slug-en id sin verdi.
     const { id } = useParams()
 
+    // Linje 10 til 14: Dette er den enklete boken vi skal vise. Siden .map på en tom array ikke gir feilemelding er feltene med arrayer som verdi satt opp som tome arrayer. 
     const [thisBook, setThisBook] = useState(
         {"covers": [],
         "subjects": [],
@@ -17,6 +19,7 @@ export default function Bookinformation() {
         searchTerm = localStorage.getItem("searchTerm")
     }
 
+    // Linje 23 til 67: Veldig lik funksjon som i Searchresultats. Hente data fra en gitt side.
     const getData = async () => {
 
         try {
@@ -26,6 +29,8 @@ export default function Bookinformation() {
             
             let description = ""
             
+            // Linje 34 til 52: Flere felter her som kan være tome eller ikke finnes. Så vi trenger å undersøke om de er tilstede for vi forsøker å hente deres data.
+
             if ("description" in data && typeof data.description !== "string" && "value" in data.description) {
                 description = data.description.value
             } else if ("description" in data) {
@@ -46,6 +51,7 @@ export default function Bookinformation() {
                 subject_people = data.subject_people
             }
             
+            // Linje 55 til 61: Till slutt, lagre boken vi skal vise. 
             setThisBook({
                 "title": data.title,
                 "description": description,

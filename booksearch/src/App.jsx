@@ -6,6 +6,7 @@ function App() {
 
     return (
     <>
+        {/* Kall BuildRoutes for å sette opp alle routes til siden. */}
         <BuildRoutes />
     </>
     )
