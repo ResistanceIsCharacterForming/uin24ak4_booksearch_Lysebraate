@@ -1,0 +1,37 @@
+.grid {
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+    .item {
+        flex-grow: 1;
+        margin: 0 auto;
+        flex-basis: 30%;
+        padding: 1rem;
+
+        .container {
+            background-color: $ashGray;
+            padding: 0.5rem 0;
+            padding-top: 1rem;
+            color: $white;
+            border-style: dashed;
+            border-color: $caribbeanCurrent;
+
+            h2 {
+                color: $persianRed;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid $caribbeanCurrent;
+                margin: 0 auto;
+                width: 80%;
+            }
+        }
+
+        img {
+            width: 65%;
+            height: auto;
+        }
+    }
+
+    .no-grow {
+        flex-grow: 0;
+    }
+}

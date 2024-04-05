@@ -1,6 +1,5 @@
 import BuildRoutes from './components/BuildRoutes'
-
-//import './styles/main.scss'
+import './sass/main.scss'
 import './App.css'
 
 function App() {

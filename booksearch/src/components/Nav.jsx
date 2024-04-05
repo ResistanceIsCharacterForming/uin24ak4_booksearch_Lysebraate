@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Nav() {
     
@@ -47,12 +48,13 @@ export default function Nav() {
     
     return (
         <header>
+            <Link to={"/search"}><h1>Booksearch</h1></Link>
             <nav>
-                <h2>Search</h2>
                 <input
                     id="search" value={input} type="text"
                     onInput = {event => {handleChange(event)}}
                     onKeyDown = {event => {handleEnter(event)}}
+                    placeholder="Search ..."
                 />
             </nav>
         </header>

@@ -1,6 +1,7 @@
 // Linje 2 til 3: Global og lokal importering.
 import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 // Linje 6 til 14: Komponent / layout. Siden denne nettsiden ikke er så avansert strukturmessig er dette den eneste som er brukt. 
 export default function Main() {
@@ -9,6 +10,7 @@ export default function Main() {
         <>
             <Nav />
             <Outlet />
+            <Footer />
         </>
     )
 }

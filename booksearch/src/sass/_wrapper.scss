@@ -1,0 +1,9 @@
+body {
+    font-family: $fontFamily; // Bruker en variabel for skrifttypen
+    font-weight: $fontWeight; // Bruker en variabel for skriftvekten
+}
+
+#root {
+    width: 100%;
+    max-width: 1650px;
+}

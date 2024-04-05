@@ -1,0 +1,26 @@
+.information {
+    .box {
+        background-color: $ashGray;
+        padding: 0.5rem;
+        color: $white;
+        border-style: dashed;
+        border-color: $caribbeanCurrent;
+    }
+
+    ul {
+        li {
+            margin-left: 1rem;
+            p {
+                text-align: initial;
+            }
+        }
+    }
+
+    .covers {
+        img {
+            width: 65%;
+            height: auto;
+            display: inline-block;
+        }
+    }
+}
