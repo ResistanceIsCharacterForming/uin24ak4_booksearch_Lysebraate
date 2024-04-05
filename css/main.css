@@ -1,0 +1,90 @@
+@import "normalize.css/normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@700;900&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+#root {
+  width: 100%;
+  max-width: 1650px;
+}
+
+.grid {
+  display: flex;
+  flex-flow: row-reverse wrap;
+}
+.grid .item {
+  flex-grow: 1;
+  margin: 0 auto;
+  flex-basis: 30%;
+  padding: 1rem;
+}
+.grid .item .container {
+  background-color: #AFBFC0;
+  padding: 0.5rem 0;
+  padding-top: 1rem;
+  color: #fff;
+  border-style: dashed;
+  border-color: #38686A;
+}
+.grid .item .container h2 {
+  color: #C44536;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #38686A;
+  margin: 0 auto;
+  width: 80%;
+}
+.grid .item img {
+  width: 65%;
+  height: auto;
+}
+.grid .no-grow {
+  flex-grow: 0;
+}
+
+header {
+  background-color: #4D2D52;
+  color: #fff;
+  padding: 0.5rem 0;
+  padding-bottom: 2.3rem;
+}
+header h1 {
+  color: #C44536;
+}
+
+footer {
+  background-color: #2D728F;
+  color: #fff;
+  padding: 0.1rem 0;
+}
+
+.information .box {
+  background-color: #AFBFC0;
+  padding: 0.5rem;
+  color: #fff;
+  border-style: dashed;
+  border-color: #38686A;
+}
+.information ul li {
+  margin-left: 1rem;
+}
+.information ul li p {
+  text-align: initial;
+}
+.information .covers img {
+  width: 65%;
+  height: auto;
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .item img {
+    width: 40%;
+  }
+}/*# sourceMappingURL=main.css.map */

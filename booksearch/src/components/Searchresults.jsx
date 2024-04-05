@@ -135,13 +135,13 @@ export default function Searchresults() {
 
     useEffect(() => {
         getData();
-      }, [])
+    }, [])
 
     return (
-        <main>
+        <main className="grid">
             {(toDisplay.length > 0)
             ?
-            toDisplay.map((data, index) => <Bookcard key={`book-${index}`} data={data} />)
+            toDisplay.map((data, index) => <Bookcard key={`book-${index}`} data={data} index={index} />)
             :
             <h3>Loading ...</h3>}
         </main>
